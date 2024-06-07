@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import "./Admin.css";
 
 const Admin = () => {
   const [messages, setMessages] = useState([]);
@@ -22,11 +23,11 @@ const Admin = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Message History</h2>
-      <ul>
+    <div className='admin-container'>
+      <h2 className="admin-header">Message History</h2>
+      <ul className="message-list">
         {messages.map((message, index) => (
-          <li key={index}>
+          <li key={index} className="message-card">
             <div>
               <strong>Product Name:</strong> {message.productName}
             </div>
@@ -42,7 +43,7 @@ const Admin = () => {
           </li>
         ))}
       </ul>
-    <Link to="/"><button>back</button></Link>
+    <Link to="/"><button className='btn btn-success'>back</button></Link>
     </div>
   );
 };
